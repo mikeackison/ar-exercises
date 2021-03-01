@@ -14,6 +14,9 @@ puts "----------"
 # Output the number of stores that are generating $1M or more in annual sales.
 # Hint: Chain together where and size (or count) Active Record methods.
 
+# NOTE: A single string, without additional arguments, is passed to the query constructor
+# as an SQL fragment, and used in the where clause of the query.
+
 total_revenue = Store.sum(:annual_revenue)
 avg_revenue = Store.average(:annual_revenue)
 busy_stores = Store.where("annual_revenue >= 1000000").count
